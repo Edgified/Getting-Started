@@ -5,43 +5,6 @@
 </head>
 
 <body onload="OnloadEvent()">
-
-
-
-
-<?php
-  $server = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "login";
-  
-  
-  $conn = mysqli_connect($server, $username, $password, $dbname);
-  
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-  }
-    session_start();
-    if($_SESSION["ExternalLoggedIn"] == false) {
-        window.open("index.html", "_self");
-    }
-    $ExternalUsername = $_SESSION["externalusername"];
-    echo "<h1 class='UserText'><u>$ExternalUsername</u></h1>";
-    echo "<div id='UserTextBackground'><input type='button' value='Logout' class='UserButton' onclick='LogoutButtonClicked()'></div>";
-  $sql_u = "SELECT * FROM registration2";
-  $res_u = mysqli_query($conn, $sql_u);
-  $NumberOfUsers = mysqli_num_rows($res_u);
-  echo "There Are ";
-  echo (mysqli_num_rows($res_u));
-  echo " Registered Accounts";
-
-  function OnloadEvent() {
-    echo "fasdf";
-  }
-?>
-
-
 <div class="search-wrapper">
     <input type="search" id="search" placeholder="Search Items.." data-search>
 </div>
